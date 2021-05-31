@@ -1,5 +1,5 @@
 # ✌ Hey, welcome to my portfolio
-![Preview](public/bg-preview.png)
+![Preview](public/preview.png)
 <br>
 
 ## Technologies
