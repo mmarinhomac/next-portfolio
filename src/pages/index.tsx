@@ -163,7 +163,14 @@ export default function Home({ posts }: PostsProps) {
         >
           {posts.map(post => (
             <GridItem key={post.slug}>
-              <Image src={post.image} borderRadius={["0", "0", "14"]} />
+              <Flex 
+                width="100%" 
+                height="80" 
+                backgroundImage={post.image} 
+                backgroundSize="cover" 
+                backgroundPosition="center" 
+                borderRadius={["0", "0", "14"]} 
+              />
               <Stack mt="4" spacing="0" pl={["8", "8", "0"]}>
                 <Text fontSize={["md", "md", "xl"]} fontWeight="700">{post.title}</Text>
                 <Text fontSize={["sm", "sm", "md"]} fontWeight="italic">{post.subtitle}</Text>
