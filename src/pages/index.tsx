@@ -150,7 +150,7 @@ export default function Home({ posts }: PostsProps) {
             <Image src="images/nodejs.svg" w="16" h="16" />
           </Stack>
         </Flex>
-        <Text mt="24" letterSpacing="4px" fontSize={["xl", "2xl", "2xl"]}>REACT CLONE 😍</Text>
+        <Text mt="24" letterSpacing="4px" fontSize={["xl", "2xl", "2xl"]}>SOME PROJECTS REACT 😍</Text>
 
         <Grid
           w={
