@@ -12,6 +12,7 @@ type Post = {
   title: string;
   subtitle: string;
   image: string;
+  link: string;
 }
 
 interface PostsProps {
@@ -162,7 +163,18 @@ export default function Home({ posts }: PostsProps) {
           mt="24"
         >
           {posts.map(post => (
-            <GridItem key={post.slug}>
+            <GridItem 
+              as="a" 
+              key={post.slug}
+              href={post.link == "https://mmarinhomac.vercel.app/" ? 
+                "/" : 
+                post.link
+              } 
+              target={post.link == "https://mmarinhomac.vercel.app/" ? 
+                "_self" : 
+                "_blank"
+              } 
+            >
               <Flex 
                 width="100%" 
                 height="80" 
@@ -200,16 +212,18 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await prismic.query([
     Prismic.predicates.at('document.type', 'post')
   ], {
-    fetch: ['post.title', 'post.subtitle', 'post.image'],
+    fetch: ['post.title', 'post.subtitle', 'post.image', 'post.git'],
     pageSize: 100,
   })
 
   const posts = response.results.map(post => {
+    console.log(post.data.git);
     return {
       slug: post.uid,
       title: RichText.asText(post.data.title),
       subtitle: RichText.asText(post.data.subtitle),
-      image: post.data.image.url
+      image: post.data.image.url,
+      link: post.data.git.url
     };
   })
 
